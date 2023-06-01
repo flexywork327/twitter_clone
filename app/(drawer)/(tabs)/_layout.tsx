@@ -66,21 +66,14 @@ export default function TabLayout() {
             ) : (
               <AntDesign name="home" size={24} color="black" />
             ),
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color={Colors[colorScheme ?? "light"].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
-          ),
+
           headerLeft: () => <AvatarHeader />,
+          headerTitle: () => (
+            <Image
+              source={require("../../../assets/images/twitter.png")}
+              style={styles.logo}
+            />
+          ),
         }}
       />
 
@@ -162,7 +155,12 @@ export default function TabLayout() {
                 </View>
               </View>
             ) : (
-              <Ionicons name="notifications-outline" size={24} color="#000" />
+              <View>
+                <Ionicons name="notifications-outline" size={24} color="#000" />
+                <View style={styles.notificationCount}>
+                  <Text style={styles.notificationCountText}>2</Text>
+                </View>
+              </View>
             ),
           headerTitle: "Notifications",
           headerLeft: () => <AvatarHeader />,
@@ -248,5 +246,13 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "bold",
     fontSize: 10,
+  },
+  logo: {
+    width: 25,
+    height: 25,
+    marginLeft: Dimensions.get("window").width / 2 - 70,
+    aspectRatio: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
