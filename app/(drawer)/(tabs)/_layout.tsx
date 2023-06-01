@@ -7,6 +7,7 @@ import {
   Pressable,
   StyleSheet,
   Text,
+  TextInput,
   View,
   useColorScheme,
 } from "react-native";
@@ -117,13 +118,13 @@ export default function TabLayout() {
                 color={Colors[colorScheme ?? "light"].text}
                 style={{ marginLeft: 10 }}
               />
-              <Text
+              <TextInput
+                placeholder="Search Twitter"
                 style={{
                   color: Colors[colorScheme ?? "light"].text,
                   marginLeft: 10,
-                }}>
-                Search Twitter
-              </Text>
+                }}
+              />
             </Pressable>
           ),
 
@@ -206,13 +207,13 @@ export default function TabLayout() {
                 color={Colors[colorScheme ?? "light"].text}
                 style={{ marginLeft: 10 }}
               />
-              <Text
+              <TextInput
+                placeholder="Search Direct Messages"
                 style={{
                   color: Colors[colorScheme ?? "light"].text,
                   marginLeft: 10,
-                }}>
-                Search Direct Messages
-              </Text>
+                }}
+              />
             </Pressable>
           ),
 
