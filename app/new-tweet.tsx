@@ -11,6 +11,7 @@ import {
   Alert,
   StatusBar,
 } from "react-native";
+import { Feather } from "@expo/vector-icons";
 
 const user = {
   id: "u1",
@@ -30,6 +31,9 @@ export default function NewTweet() {
     }
     Alert.alert("Tweeted", text);
     router.push("/");
+  };
+  const handleImage = () => {
+    console.log("handle image");
   };
 
   return (
@@ -56,6 +60,19 @@ export default function NewTweet() {
               numberOfLines={5}
               style={{ flex: 1 }}
             />
+          </View>
+
+          <View>
+            <TextInput
+              placeholder="Image url (optional)"
+              style={styles.visibility}
+            />
+          </View>
+
+          <View style={{ flexDirection: "row" }}>
+            <Pressable onPress={handleImage}>
+              <Feather name="image" size={24} color="black" />
+            </Pressable>
           </View>
         </View>
       </SafeAreaView>
@@ -94,5 +111,12 @@ const styles = StyleSheet.create({
     aspectRatio: 1,
     borderRadius: 50,
     marginRight: 10,
+  },
+  visibility: {
+    height: 50,
+    borderBottomWidth: 1,
+    borderColor: "lightgrey",
+    padding: 10,
+    marginVertical: 10,
   },
 });

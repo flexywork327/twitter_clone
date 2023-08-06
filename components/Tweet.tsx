@@ -17,7 +17,7 @@ const Tweet = ({ tweet }: TweetProps) => {
         <View style={styles.mainContainer}>
           <View style={{ flexDirection: "row" }}>
             <Text style={styles.name}>{tweet.user.name}</Text>
-            <Text style={styles.username}>{tweet.user.username} · 2h</Text>
+            <Text style={styles.username}>@{tweet.user.username} · 2h</Text>
             <Entypo
               name="dots-three-horizontal"
               size={16}
@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderColor: "lightgrey",
+    borderWidth: 1,
     backgroundColor: "white",
   },
   userImage: {
