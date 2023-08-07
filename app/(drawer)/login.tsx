@@ -4,13 +4,17 @@ import {
   Text,
   TextInput,
   View,
+  KeyboardAvoidingView,
 } from "react-native";
-import React from "react";
+import { useState } from "react";
 import { Link } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const onPressLearnMore = () => {
     alert("Hello World");
   };
@@ -19,8 +23,12 @@ const Login = () => {
     alert("coming soon");
   };
 
+  const onLoginPress = () => {
+    alert("welcome " + email + " " + password);
+  };
+
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView behavior="padding" style={styles.container}>
       <>
         <View style={{ width: 300, backgroundColor: "white" }}>
           <Text style={styles.header}>Sign in to X</Text>
@@ -55,6 +63,7 @@ const Login = () => {
               style={styles.accountField}
               placeholder="Enter Email or Username"
               autoComplete="email"
+              onChangeText={(text) => setEmail(text)}
             />
           </View>
 
@@ -64,10 +73,11 @@ const Login = () => {
               placeholder="Enter Password"
               autoComplete="password"
               secureTextEntry={true}
+              onChangeText={(text) => setPassword(text)}
             />
           </View>
 
-          <TouchableOpacity style={styles.button} onPress={onPressLearnMore}>
+          <TouchableOpacity style={styles.button} onPress={onLoginPress}>
             <Text style={{ color: "white" }}>Login</Text>
           </TouchableOpacity>
 
@@ -87,7 +97,7 @@ const Login = () => {
           </Link>
         </Text>
       </>
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 
